@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const tokenExpiry = require('./utilities/tokenExpiry');
 const express = require('express');
 const app = express();
 
@@ -15,4 +15,4 @@ app.use('/v1/users', userRoutes);
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log('[Server] online ' + new Date(), process.env));
+app.listen(port, () => console.log('[Server] online ' + new Date()));
