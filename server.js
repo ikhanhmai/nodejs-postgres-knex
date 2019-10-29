@@ -1,5 +1,6 @@
-const express = require('express');
+require('dotenv').config();
 
+const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
@@ -14,4 +15,4 @@ app.use('/v1/users', userRoutes);
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log('[Server] online ' + new Date()));
+app.listen(port, () => console.log('[Server] online ' + new Date(), process.env));

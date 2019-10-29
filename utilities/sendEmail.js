@@ -1,14 +1,14 @@
 const aws = require('aws-sdk');
 // use AWS global variables
-aws.config.accessKeyId;
-aws.config.secretAccessKey;
-aws.config.region = 'us-east-1';
+aws.config.accessKeyId = process.env.AWS_ACCESSKEYID;
+aws.config.secretAccessKey = process.env.AWS_SECRETACCESSKEY;
+aws.config.region = process.env.AWS_REGION;
 
 // Create an Email function
 function Email(to, sub, content) {
   let ses = new aws.SES();
 
-  let from = 'khanh.mai.steinsvik@gmail.com'; // The email address added here must be verified in Amazon SES
+  let from = process.env.SENDER; // The email address added here must be verified in Amazon SES
   //Amazon SES email format
   ses.sendEmail(
     {
